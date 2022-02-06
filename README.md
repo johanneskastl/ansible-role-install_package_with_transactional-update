@@ -11,7 +11,7 @@ None.
 Role Variables
 --------------
 
-None.
+- `package_name`: (required) name of the package(s) you want to install
 
 Dependencies
 ------------
