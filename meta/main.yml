@@ -1,0 +1,21 @@
+galaxy_info:
+  role_name: 'install_package_with_transactional-update'
+  author: 'Johannes Kastl'
+  description: 'Install a package using transactional-update on openSUSE/SUSE MicroOS or Kubic, including a reboot directly afterwards'
+  company: 'B1 Systems GmbH'
+
+  license: 'BSD-3-Clause'
+
+  min_ansible_version: 2.4
+
+  platforms:
+  - name: openSUSE MicroOS
+    versions:
+    - all
+  - name: SUSE MicroOS
+    versions:
+    - all
+
+  galaxy_tags: []
+
+dependencies: []
