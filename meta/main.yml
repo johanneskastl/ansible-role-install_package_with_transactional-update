@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'install_package_with_transactional-update'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Install a package using transactional-update on openSUSE/SUSE MicroOS or Kubic, including a reboot directly afterwards'
   company: 'B1 Systems GmbH'
