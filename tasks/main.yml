@@ -9,7 +9,6 @@
 - name: "Check if  is already installed: {{ package_name }}"
   ansible.builtin.command:
     cmd: 'rpm -q {{ package_name }} '
-    warn: 'false'
   register: check_for_package
   changed_when: 'false'
   check_mode: 'false'
