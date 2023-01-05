@@ -10,12 +10,12 @@ galaxy_info:
   min_ansible_version: '2.4'
 
   platforms:
-  - name: openSUSE MicroOS
-    versions:
-    - all
-  - name: SUSE MicroOS
-    versions:
-    - all
+    - name: openSUSE MicroOS
+      versions:
+        - all
+    - name: SUSE MicroOS
+      versions:
+        - all
 
   galaxy_tags: []
 
