@@ -1,12 +1,12 @@
 ---
 # install_package_with_transactional-update/tasks/main.yml
 
-- fail:
+- ansible.builtin.fail:
     msg: 'Please set the variable package_name'
   when: 'package_name is undefined'
 
 - name: "Check if {{ package_name }} is already installed"
-  command:
+  ansible.builtin.command:
     cmd: 'rpm -q {{ package_name }} '
     warn: 'false'
   register: check_for_package
@@ -15,7 +15,7 @@
   failed_when: 'check_for_package.rc != 0 and check_for_package.rc != 1'
 
 - name: 'Install package {{ package_name }} using transactional-update'
-  command: "/usr/sbin/transactional-update -n pkg install {{ package_name }}"
+  ansible.builtin.command: "/usr/sbin/transactional-update -n pkg install {{ package_name }}"
   register: transactional_update_package_installation
   changed_when:
     - '"zypper: nothing to update" not in transactional_update_package_installation.stdout'
@@ -27,4 +27,4 @@
     - '"is not installed" in check_for_package.stdout'
 
 - name: 'transactional-updates package installation: force reboot at this point to not lose changes'
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
