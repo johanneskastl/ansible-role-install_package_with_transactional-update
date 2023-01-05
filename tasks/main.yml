@@ -1,7 +1,8 @@
 ---
 # install_package_with_transactional-update/tasks/main.yml
 
-- ansible.builtin.fail:
+- name: 'Fail if variable package_name is unset'
+  ansible.builtin.fail:
     msg: 'Please set the variable package_name'
   when: 'package_name is undefined'
 
