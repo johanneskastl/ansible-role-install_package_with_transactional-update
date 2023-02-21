@@ -16,6 +16,7 @@
   when:
     - '
       ansible_distribution == "openSUSE MicroOS"
+      or ansible_distribution == "openSUSE Leap Micro"
       '
 
 - name: 'Force reboot after transactional-updates package installation to not lose changes'
