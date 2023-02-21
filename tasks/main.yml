@@ -4,7 +4,8 @@
 - name: 'Fail if variable package_name is unset'
   ansible.builtin.fail:
     msg: 'Please set the variable package_name'
-  when: 'package_name is undefined'
+  when:
+    - 'package_name is undefined'
 
 - name: 'Install package {{ package_name }}'
   community.general.zypper:
