@@ -13,6 +13,9 @@ galaxy_info:
     - name: openSUSE MicroOS
       versions:
         - all
+    - name: openSUSE Leap Micro
+      versions:
+        - all
     - name: SUSE MicroOS
       versions:
         - all
