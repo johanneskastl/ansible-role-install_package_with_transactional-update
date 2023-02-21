@@ -6,25 +6,14 @@
     msg: 'Please set the variable package_name'
   when: 'package_name is undefined'
 
-- name: "Check if  is already installed: {{ package_name }}"
-  ansible.builtin.command:
-    cmd: 'rpm -q {{ package_name }} '
-  register: check_for_package
-  changed_when: 'false'
-  check_mode: 'false'
-  failed_when: 'check_for_package.rc != 0 and check_for_package.rc != 1'
-
 - name: 'Install package {{ package_name }}'
-  ansible.builtin.command: "/usr/sbin/transactional-update -n pkg install {{ package_name }}"
-  register: transactional_update_package_installation
-  changed_when:
-    - '"zypper: nothing to update" not in transactional_update_package_installation.stdout'
+  community.general.zypper:
+    name: "{{ package_name }}"
   notify:
-    - "Reboot"
-    - "Wait for the machine(s) to be ready again"
+    - 'Reboot'
+    - 'Wait for the machine(s) to be ready again'
   when:
     - 'ansible_distribution == "openSUSE MicroOS"'
-    - '"is not installed" in check_for_package.stdout'
 
 - name: 'Force reboot after transactional-updates package installation to not lose changes'
   ansible.builtin.meta: flush_handlers
