@@ -14,7 +14,9 @@
     - 'Reboot'
     - 'Wait for the machine(s) to be ready again'
   when:
-    - 'ansible_distribution == "openSUSE MicroOS"'
+    - '
+      ansible_distribution == "openSUSE MicroOS"
+      '
 
 - name: 'Force reboot after transactional-updates package installation to not lose changes'
   ansible.builtin.meta: flush_handlers
