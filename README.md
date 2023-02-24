@@ -25,7 +25,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-        - { role: 'johanneskastl.install_package_with_transactional-update' }
+        - role: 'johanneskastl.install_package_with_transactional-update'
 
 License
 -------
