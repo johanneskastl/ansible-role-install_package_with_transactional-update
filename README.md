@@ -26,6 +26,7 @@ Example Playbook
     - hosts: servers
       roles:
         - role: 'johanneskastl.install_package_with_transactional-update'
+          package_name: tmux
 
 License
 -------
